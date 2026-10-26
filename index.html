@@ -2373,6 +2373,139 @@
       stroke-width: 2.4;
       flex-shrink: 0;
     }
+
+    /* ------------------------------------------------------------------------
+       2.16 MODAL POP-UP DE INSCRIÇÃO (#registerModal) & CTA BANNER
+    ------------------------------------------------------------------------ */
+    body.modal-open {
+      overflow: hidden;
+    }
+
+    .register-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(3, 9, 18, 0.88);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.25s ease, visibility 0.25s ease;
+    }
+
+    .register-modal-backdrop.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      display: none !important;
+    }
+
+    .register-modal-container {
+      width: 100%;
+      max-width: 680px;
+      max-height: 92vh;
+      overflow-y: auto;
+      background: #0c1b2d;
+      border: 1px solid rgba(0, 183, 255, 0.4);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 183, 255, 0.2);
+      position: relative;
+      animation: modalSlideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes modalSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px) scale(0.97);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .register-modal-header {
+      padding: 18px 24px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      background: #0c1b2d;
+      z-index: 10;
+    }
+
+    .register-modal-close-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      border-radius: var(--radius-sm);
+      width: 36px;
+      height: 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      flex-shrink: 0;
+    }
+
+    .register-modal-close-btn:hover {
+      background: rgba(255, 255, 255, 0.14);
+      color: #fff;
+      border-color: var(--blue);
+      transform: scale(1.05);
+    }
+
+    .register-modal-body {
+      padding: 20px 24px 28px;
+    }
+
+    .register-modal-body .card {
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .modal-mode-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      background: rgba(0, 183, 255, 0.12);
+      border: 1px solid rgba(0, 183, 255, 0.35);
+      border-radius: var(--radius-pill);
+      color: var(--blue);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+
+    .modal-mode-badge.presencial {
+      background: rgba(255, 178, 28, 0.12);
+      border-color: rgba(255, 178, 28, 0.35);
+      color: var(--gold);
+    }
+
+    .landing-cta-banner {
+      background: linear-gradient(135deg, rgba(12, 27, 45, 0.95), rgba(7, 17, 31, 0.95));
+      border: 1px solid rgba(0, 183, 255, 0.25);
+      border-radius: var(--radius-lg);
+      padding: 44px 28px;
+      text-align: center;
+      margin: 48px auto;
+      max-width: 880px;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+    }
   </style>
 </head>
 
@@ -2563,19 +2696,61 @@
         </div>
       </section>
 
-      <!-- 3.5 Seção de Inscrição da Landing Page -->
-      <div id="inscricao">
-        <section class="card" id="registerPanel" aria-label="Formulário de Inscrição">
-          <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px; margin-bottom:14px;">
-            <div>
-              <h2 style="margin-bottom:6px">Reserva a tua vaga</h2>
-              <p class="muted" style="margin:0">Preenche os teus dados abaixo para gerar a tua factura pró-forma e o teu ID de estudante.</p>
-            </div>
-            <a href="#portal" class="portal-nav-btn">
-              <svg class="svg-icon" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg> Já tens inscrição? Acede à tua Área do Aluno →
-            </a>
-          </div>
+      <!-- 3.5 Banner de Chamada para Inscrição da Landing Page -->
+      <section class="landing-cta-banner" id="inscricao" aria-label="Garante a tua vaga">
+        <span class="story-pill">Inscrições Limitadas</span>
+        <h2 style="font-size:1.85rem; margin-top:8px;">Pronto para programar com Inteligência Artificial?</h2>
+        <p class="muted" style="max-width:620px; margin:10px auto 26px;">
+          Escolhe a tua modalidade favorita para abrir o formulário de inscrição, emitir a tua Factura Pró-forma A4 oficial e garantir a tua vaga na turma.
+        </p>
+        <div style="display:flex; justify-content:center; gap:16px; flex-wrap:wrap; margin-bottom:22px;">
+          <button class="btn-select" type="button" data-mode="online" style="min-width:240px; font-weight:700;">
+            SELECCIONAR ONLINE (4.000 MT) →
+          </button>
+          <button class="btn-select featured" type="button" data-mode="presencial" style="min-width:240px; font-weight:700; background:var(--gold); color:#05121e; border-color:var(--gold);">
+            SELECCIONAR PRESENCIAL (5.000 MT) →
+          </button>
+        </div>
+        <div>
+          <a href="#portal" class="portal-nav-btn" style="display:inline-flex;">
+            <svg class="svg-icon" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg> Já tens inscrição? Acede à tua Área do Aluno →
+          </a>
+        </div>
+      </section>
 
+      <!-- 3.6 Rodapé Oficial da Landing Page -->
+      <footer class="footer">
+        Dúvidas e suporte oficial: <a class="contact" href="https://wa.me/message/B6KUROA4OG4PG1" target="_blank" rel="noopener">WhatsApp Oficial da Equipa</a><br>
+        <strong>ZEDECKS TRAINING</strong> · Programação Assistida por IA · Do Zero ao Júnior
+      </footer>
+
+      <!-- Botão Flutuante de Suporte via WhatsApp -->
+      <a href="https://wa.me/message/B6KUROA4OG4PG1" target="_blank" rel="noopener" class="floating-whatsapp-btn" id="floatingSupportBtn" aria-label="Tirar dúvidas no WhatsApp com o suporte oficial">
+        <svg class="svg-icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        <span>Dúvidas no WhatsApp</span>
+      </a>
+
+    </main>
+  </div>
+
+  <!-- ==========================================================================
+    3.MODAL POP-UP DE INSCRIÇÃO (#registerModal)
+  ========================================================================== -->
+  <div id="registerModal" class="register-modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="modalRegisterTitle">
+    <div class="register-modal-container">
+      <div class="register-modal-header">
+        <div>
+          <div class="modal-mode-badge" id="modalSelectedModeBadge">Modalidade Online ao Vivo</div>
+          <h2 id="modalRegisterTitle" style="margin:0; font-size:1.35rem; color:#fff;">Formulário de Inscrição</h2>
+          <p class="muted" style="margin:4px 0 0; font-size:0.86rem;">Preenche os teus dados para gerar a Factura Pró-forma A4 e reservar a tua vaga.</p>
+        </div>
+        <button type="button" class="register-modal-close-btn" id="closeRegisterModalBtn" aria-label="Fechar janela de inscrição">
+          <svg class="svg-icon" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <div class="register-modal-body">
+        <section class="card" id="registerPanel" aria-label="Formulário de Inscrição">
           <div class="scarcity-callout">
             <svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
             <span><strong>Vagas Limitadas:</strong> Capacidade restrita no laboratório presencial em Nampula para garantir acompanhamento prático e individualizado.</span>
@@ -2710,20 +2885,7 @@
           </form>
         </section>
       </div>
-
-      <!-- 3.6 Rodapé Oficial da Landing Page -->
-      <footer class="footer">
-        Dúvidas e suporte oficial: <a class="contact" href="https://wa.me/message/B6KUROA4OG4PG1" target="_blank" rel="noopener">WhatsApp Oficial da Equipa</a><br>
-        <strong>ZEDECKS TRAINING</strong> · Programação Assistida por IA · Do Zero ao Júnior
-      </footer>
-
-      <!-- Botão Flutuante de Suporte via WhatsApp -->
-      <a href="https://wa.me/message/B6KUROA4OG4PG1" target="_blank" rel="noopener" class="floating-whatsapp-btn" id="floatingSupportBtn" aria-label="Tirar dúvidas no WhatsApp com o suporte oficial">
-        <svg class="svg-icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-        <span>Dúvidas no WhatsApp</span>
-      </a>
-
-    </main>
+    </div>
   </div>
 
   <!-- ==========================================================================
@@ -4158,10 +4320,99 @@
 
         addStudent(student) {
           const students = this.getAllStudents();
-          students.push(student);
+          const cleanCode = (student.code || '').trim().toUpperCase();
+          const existingIdx = students.findIndex(s => (s.code || '').trim().toUpperCase() === cleanCode);
+          if (existingIdx >= 0) {
+            students[existingIdx] = student;
+          } else {
+            students.push(student);
+          }
           this.saveAllStudents(students);
           FirebaseDataAdapter.saveStudent(student);
           return student;
+        },
+
+        getActiveSession() {
+          if (activeStudentSession) return activeStudentSession;
+          try {
+            const raw = sessionStorage.getItem('zedecks_student_session') || localStorage.getItem('zedecks_student_session');
+            if (raw) {
+              const parsed = JSON.parse(raw);
+              if (parsed && parsed.code) return parsed;
+            }
+          } catch (_) {}
+          return null;
+        },
+
+        setActiveSession(student) {
+          activeStudentSession = student;
+          if (!student) {
+            sessionStorage.removeItem('zedecks_student_session');
+            localStorage.removeItem('zedecks_student_session');
+            return;
+          }
+          try {
+            const serialized = JSON.stringify(student);
+            sessionStorage.setItem('zedecks_student_session', serialized);
+            localStorage.setItem('zedecks_student_session', serialized);
+            localStorage.setItem('zedecks_last_student_code', student.code);
+          } catch (_) {}
+        },
+
+        hasRegisteredAccount() {
+          if (this.getActiveSession()) return true;
+          const lastCode = localStorage.getItem('zedecks_last_student_code');
+          if (lastCode && this.getStudentByCode(lastCode)) return true;
+          return false;
+        },
+
+        getPendingDraft() {
+          try {
+            const raw = localStorage.getItem('zedecks_pending_draft');
+            if (!raw) return null;
+            return JSON.parse(raw);
+          } catch (_) {
+            return null;
+          }
+        },
+
+        savePendingDraft(draft) {
+          try {
+            if (!draft) {
+              localStorage.removeItem('zedecks_pending_draft');
+            } else {
+              localStorage.setItem('zedecks_pending_draft', JSON.stringify(draft));
+            }
+          } catch (_) {}
+        },
+
+        grantAccountViaWhatsApp(code) {
+          if (!code) return null;
+          const clean = code.trim().toUpperCase();
+          const students = this.getAllStudents();
+          let targetStudent = students.find((item) => (item.code || '').trim().toUpperCase() === clean);
+          if (!targetStudent) {
+            const draft = this.getPendingDraft();
+            if (draft && (draft.code || '').trim().toUpperCase() === clean) {
+              draft.proofName = 'Enviado via WhatsApp Oficial';
+              draft.status = 'Comprovativo enviado';
+              draft.proofUploadedAt = new Date().toISOString();
+              this.addStudent(draft);
+              this.savePendingDraft(null);
+              targetStudent = draft;
+            }
+          } else if (targetStudent.status === 'A aguardar pagamento') {
+            targetStudent.proofName = 'Enviado via WhatsApp Oficial';
+            targetStudent.status = 'Comprovativo enviado';
+            targetStudent.proofUploadedAt = new Date().toISOString();
+            this.saveAllStudents(students);
+            FirebaseDataAdapter.saveStudent(targetStudent);
+          }
+          if (targetStudent) {
+            this.setActiveSession(targetStudent);
+            return targetStudent;
+          }
+          return null;
         },
 
         updateStudentStatus(code, newStatus) {
@@ -4182,7 +4433,9 @@
           if (!code) return null;
           const clean = code.trim().toUpperCase();
           const students = this.getAllStudents();
-          const targetIndex = students.findIndex((item) => (item.code || '').trim().toUpperCase() === clean);
+          let targetIndex = students.findIndex((item) => (item.code || '').trim().toUpperCase() === clean);
+          let targetStudent = null;
+
           if (targetIndex >= 0) {
             students[targetIndex].proofName = proofFileName;
             if (proofDataUrl) {
@@ -4192,7 +4445,26 @@
             students[targetIndex].proofUploadedAt = new Date().toISOString();
             this.saveAllStudents(students);
             FirebaseDataAdapter.saveStudent(students[targetIndex]);
-            return students[targetIndex];
+            targetStudent = students[targetIndex];
+          } else {
+            // Conta concedida automaticamente após envio do comprovativo
+            const draft = this.getPendingDraft();
+            if (draft && (draft.code || '').trim().toUpperCase() === clean) {
+              draft.proofName = proofFileName;
+              if (proofDataUrl) {
+                draft.proofData = proofDataUrl;
+              }
+              draft.status = 'Comprovativo enviado';
+              draft.proofUploadedAt = new Date().toISOString();
+              this.addStudent(draft);
+              this.savePendingDraft(null);
+              targetStudent = draft;
+            }
+          }
+
+          if (targetStudent) {
+            this.setActiveSession(targetStudent);
+            return targetStudent;
           }
           return null;
         },
@@ -4280,6 +4552,55 @@
         }
       };
 
+      // 4.6.B CONTROLADOR DO MODAL DE INSCRIÇÃO (#registerModal)
+      const ModalController = {
+        hasAccount() {
+          return Boolean(StorageRepository.getActiveSession() || StorageRepository.hasRegisteredAccount());
+        },
+
+        openRegisterModal(mode = 'online') {
+          // Regra Principal: Se já tiver conta, já vai directo para http://localhost:2025/#portal
+          if (this.hasAccount()) {
+            AppRouter.navigateToPortal();
+            return;
+          }
+
+          const modal = getElement('registerModal');
+          if (!modal) return;
+
+          const modeSelect = getElement('mode');
+          if (modeSelect && mode) {
+            modeSelect.value = mode;
+            FormValidatorUI.clearError('fieldModeWrapper');
+          }
+
+          const badge = getElement('modalSelectedModeBadge');
+          if (badge) {
+            const isPresencial = mode === 'presencial';
+            badge.textContent = isPresencial ? 'Modalidade Presencial (Nampula)' : 'Modalidade Online ao Vivo';
+            badge.className = isPresencial ? 'modal-mode-badge presencial' : 'modal-mode-badge';
+          }
+
+          modal.classList.remove('hidden');
+          modal.setAttribute('aria-hidden', 'false');
+          document.body.classList.add('modal-open');
+
+          setTimeout(() => {
+            const nameInput = getElement('name');
+            if (nameInput) nameInput.focus();
+          }, 120);
+        },
+
+        closeRegisterModal() {
+          const modal = getElement('registerModal');
+          if (modal) {
+            modal.classList.add('hidden');
+            modal.setAttribute('aria-hidden', 'true');
+          }
+          document.body.classList.remove('modal-open');
+        }
+      };
+
       // 4.7 ROTEADOR DE PÁGINAS INDEPENDENTES (HASH ROUTER: #site, #portal, #admin)
       const AppRouter = {
         isPortalRoute() {
@@ -4293,6 +4614,7 @@
         },
 
         navigateToSite(targetAnchor = '') {
+          ModalController.closeRegisterModal();
           if (targetAnchor) {
             window.location.hash = targetAnchor.startsWith('#') ? targetAnchor : `#${targetAnchor}`;
           } else {
@@ -4308,10 +4630,12 @@
         },
 
         navigateToPortal() {
+          ModalController.closeRegisterModal();
           window.location.hash = '#portal';
         },
 
         navigateToAdmin() {
+          ModalController.closeRegisterModal();
           window.location.hash = '#admin';
         },
 
@@ -4321,6 +4645,8 @@
           const landingView = getElement('landingView');
           const portalView = getElement('portalView');
           const adminView = getElement('adminView');
+
+          ModalController.closeRegisterModal();
 
           if (isAdmin) {
             if (landingView) landingView.classList.add('hidden');
@@ -4334,8 +4660,10 @@
             if (portalView) portalView.classList.remove('hidden');
             window.scrollTo({ top: 0, behavior: 'instant' });
 
-            if (activeStudentSession) {
-              StudentViewRenderer.showDashboard(activeStudentSession);
+            const session = StorageRepository.getActiveSession();
+            if (session) {
+              activeStudentSession = session;
+              StudentViewRenderer.showDashboard(session);
             } else {
               StudentViewRenderer.showLogin();
             }
@@ -4355,19 +4683,14 @@
         },
 
         selectModeAndScroll(mode) {
+          if (ModalController.hasAccount()) {
+            this.navigateToPortal();
+            return;
+          }
           if (this.isPortalRoute() || this.isAdminRoute()) {
-            this.navigateToSite('inscricao');
+            this.navigateToSite();
           }
-          const modeSelect = getElement('mode');
-          if (modeSelect) modeSelect.value = mode;
-          FormValidatorUI.clearError('fieldModeWrapper');
-          const nameInput = getElement('name');
-          if (nameInput) nameInput.focus();
-
-          const targetSection = getElement('inscricao');
-          if (targetSection) {
-            targetSection.scrollIntoView({ behavior: 'smooth' });
-          }
+          ModalController.openRegisterModal(mode);
         }
       };
 
@@ -5188,15 +5511,20 @@
             createdAt: new Date().toISOString()
           };
 
-          StorageRepository.addStudent(newStudent);
+          // Salva como rascunho de pré-inscrição (conta ativa só é concedida após comprovativo de pagamento)
+          StorageRepository.savePendingDraft(newStudent);
+          StorageRepository.setActiveSession(newStudent);
+
+          // Fecha o pop-up de inscrição e navega para a Área do Aluno
+          ModalController.closeRegisterModal();
           AppRouter.navigateToPortal();
           StudentViewRenderer.showDashboard(newStudent);
 
           alert(
-            `Parabéns, ${cleanName.split(' ')[0]}!\n\nA tua inscrição foi iniciada com sucesso.\n\n` +
+            `Parabéns, ${cleanName.split(' ')[0]}!\n\nA tua pré-inscrição foi registada com sucesso.\n\n` +
             `ID do Estudante: ${newStudent.code}\n` +
-            `Senha de Acesso: ${newStudent.password}\n\n` +
-            `Guarda estes dados para voltar a consultar o estado a qualquer momento. Podes agora descarregar a tua Factura A4.`
+            `Modalidade: ${newStudent.mode === 'online' ? 'Online ao Vivo' : 'Presencial (Nampula)'}\n\n` +
+            `IMPORTANTE: A tua conta será concedida oficialmente em estado de revisão assim que anexares o comprovativo de pagamento ou o enviares via WhatsApp oficial.\n\nA emitir a tua Factura Pró-forma A4...`
           );
 
           InvoicePrinter.print(newStudent, false);
@@ -5224,10 +5552,27 @@
           try {
             const passHash = await CryptoSecurity.hashSecret(password);
 
-            // 1. Procura primeiro no armazenamento local (imediato / offline)
+            // 1. Procura primeiro no armazenamento local de alunos com conta concedida
             let student = StorageRepository.findStudentByCredentials(credential, password, passHash);
 
-            // 2. Se não encontrou localmente e o Firebase está ativo, consulta diretamente a Cloud Firestore
+            // 2. Se não encontrou, verifica se há pré-inscrição pendente de ativação neste dispositivo
+            if (!student) {
+              const draft = StorageRepository.getPendingDraft();
+              if (draft) {
+                const draftCode = (draft.code || '').replace(/[\s\-]/g, '').toUpperCase();
+                const draftPhone = (draft.phone || '').replace(/[\s\-\(\)\+]/g, '');
+                const cleanCred = credential.trim().replace(/[\s\-\(\)\+]/g, '').toUpperCase();
+                const matchesCode = (draftCode === cleanCred) || (draftCode.replace(/^IA/, '') === cleanCred.replace(/^IA/, ''));
+                const matchesPhone = Boolean(cleanCred && (draftPhone.endsWith(cleanCred) || cleanCred.endsWith(draftPhone)));
+                const matchesPass = draft.password === password || draft.passHash === passHash;
+
+                if ((matchesCode || matchesPhone) && matchesPass) {
+                  student = draft;
+                }
+              }
+            }
+
+            // 3. Se não encontrou localmente e o Firebase está ativo, consulta diretamente a Cloud Firestore
             if (!student && FirebaseDataAdapter.isConfigured()) {
               const cloudStudent = await FirebaseDataAdapter.fetchStudent(credential);
               if (cloudStudent) {
@@ -5237,7 +5582,6 @@
 
                 if (matchesPlain || matchesHash) {
                   student = cloudStudent;
-                  // Persiste localmente para acessos futuros instantâneos
                   const all = StorageRepository.getAllStudents();
                   const cleanTargetCode = (cloudStudent.code || '').trim().toUpperCase();
                   const existsIdx = all.findIndex(s => (s.code || '').trim().toUpperCase() === cleanTargetCode);
@@ -5256,6 +5600,7 @@
               return;
             }
 
+            StorageRepository.setActiveSession(student);
             StudentViewRenderer.showDashboard(student);
           } catch (err) {
             console.error('Erro ao efetuar login do aluno:', err);
@@ -5271,8 +5616,9 @@
         handleProofUpload(event) {
           event.preventDefault();
 
-          if (!activeStudentSession) {
-            alert('Nenhuma sessão de estudante ativa.');
+          const session = StorageRepository.getActiveSession();
+          if (!session) {
+            alert('Nenhuma sessão de estudante ativa. Por favor preenche a tua pré-inscrição primeiro.');
             return;
           }
 
@@ -5298,18 +5644,19 @@
           reader.onload = (e) => {
             const base64Data = e.target.result;
             const updatedStudent = StorageRepository.updateStudentProof(
-              activeStudentSession.code, 
+              session.code, 
               file.name,
               base64Data
             );
 
             if (updatedStudent) {
               activeStudentSession = updatedStudent;
+              StorageRepository.setActiveSession(updatedStudent);
               StudentViewRenderer.render(updatedStudent);
               fileInput.value = '';
 
               alert(
-                `Comprovativo submetido com sucesso (${file.name})!\n\nA equipa da Zedecks Training validará a confirmação da tua vaga.`
+                `Comprovativo submetido com sucesso (${file.name})!\n\nA tua conta foi concedida e encontra-se agora em estado de revisão académica pela coordenação da Zedecks Training.`
               );
             }
           };
@@ -5350,6 +5697,7 @@
         },
 
         handleLogout() {
+          StorageRepository.setActiveSession(null);
           StudentViewRenderer.showLogin();
           AppRouter.navigateToPortal();
         }
@@ -5372,6 +5720,12 @@
             }
           }
         });
+
+        // Restaura sessão de estudante ativa se existir
+        const savedSession = StorageRepository.getActiveSession();
+        if (savedSession) {
+          activeStudentSession = savedSession;
+        }
 
         const passInput = getElement('password');
         if (passInput && !passInput.value) {
@@ -5419,17 +5773,47 @@
         // CTA no Hero e cards de modalidade
         const heroCtaBtn = getElement('heroCtaBtn');
         if (heroCtaBtn) {
-          heroCtaBtn.addEventListener('click', () => {
-            AppRouter.navigateToSite('inscricao');
+          heroCtaBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (ModalController.hasAccount()) {
+              AppRouter.navigateToPortal();
+            } else {
+              const planosSection = getElement('planos');
+              if (planosSection) {
+                planosSection.scrollIntoView({ behavior: 'smooth' });
+              }
+            }
           });
         }
 
         document.querySelectorAll('button[data-mode]').forEach((button) => {
           button.addEventListener('click', (e) => {
+            e.preventDefault();
             const selectedMode = e.currentTarget.getAttribute('data-mode');
-            AppRouter.selectModeAndScroll(selectedMode);
+            if (ModalController.hasAccount()) {
+              AppRouter.navigateToPortal();
+            } else {
+              ModalController.openRegisterModal(selectedMode);
+            }
           });
         });
+
+        // Controles de fechamento do Modal de Inscrição (#registerModal)
+        const closeRegisterModalBtn = getElement('closeRegisterModalBtn');
+        if (closeRegisterModalBtn) {
+          closeRegisterModalBtn.addEventListener('click', () => {
+            ModalController.closeRegisterModal();
+          });
+        }
+
+        const registerModal = getElement('registerModal');
+        if (registerModal) {
+          registerModal.addEventListener('click', (e) => {
+            if (e.target === registerModal) {
+              ModalController.closeRegisterModal();
+            }
+          });
+        }
 
         // 1. CAMPO NOME: Auto-capitalização imediata e validação em tempo real a cada caractere
         const nameInput = getElement('name');
@@ -5603,9 +5987,25 @@
 
         window.addEventListener('keydown', (e) => {
           if (e.key === 'Escape') {
+            ModalController.closeRegisterModal();
             AdminController.closeProofModal();
           }
         });
+
+        // Concessão de conta em revisão ao clicar para enviar comprovativo via WhatsApp
+        const proofWaBtn = getElement('proofWhatsAppBtn');
+        if (proofWaBtn) {
+          proofWaBtn.addEventListener('click', () => {
+            const currentSession = StorageRepository.getActiveSession();
+            if (currentSession && currentSession.status === 'A aguardar pagamento') {
+              const updated = StorageRepository.grantAccountViaWhatsApp(currentSession.code);
+              if (updated) {
+                activeStudentSession = updated;
+                StudentViewRenderer.render(updated);
+              }
+            }
+          });
+        }
 
         // Botões de Download Direto da Factura e Recibo de Quitação (Impressão / PDF A4)
         getElement('downloadInvoiceBtn').addEventListener('click', () => {

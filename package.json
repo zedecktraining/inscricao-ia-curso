@@ -1,6 +1,6 @@
 {
   "name": "inscricao-ia-curso",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Landing page e Portal do Aluno com faturação pró-forma A4 em PDF e painel administrativo para o curso de Programação Assistida por IA da Zedecks Training.",
   "main": "index.html",
   "homepage": "https://inscricao.zedecks.com",
