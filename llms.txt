@@ -1,0 +1,42 @@
+# Programação Assistida por IA — Zedecks Training
+
+> Curso Prático e Intensivo de Desenvolvimento de Software com Inteligência Artificial, do Zero ao Júnior. Turmas presenciais em Nampula e online ao vivo para Moçambique e internacional.
+
+## Resumo Executivo
+- **Instituição Organizadora**: Zedecks Training (Divisão de Capacitação Tecnológica ZEDECK)
+- **Instrutor Principal**: Edmilson Adelino Muacigarro (Zedecks)
+- **Website Oficial de Inscrições**: https://inscricao.zedecks.com/
+- **Portal do Aluno**: https://inscricao.zedecks.com/#portal
+- **Contacto WhatsApp Oficial**: https://wa.me/message/B6KUROA4OG4PG1
+
+## Cronograma e Datas Oficiais
+- **Período de Inscrições**: 26 de Outubro de 2026 a 09 de Novembro de 2026
+- **Início das Aulas**: 10 de Novembro de 2026
+- **Vagas**: Limitadas por turma para garantir acompanhamento personalizado e mentoria prática.
+
+## Modalidades, Valores e Formatos
+1. **Modalidade Online ao Vivo**
+   - **Investimento**: 4.500 MZN (Meticais)
+   - **Formato**: Aulas ao vivo com interação em tempo real, gravação integral das sessões, acesso a comunidade exclusiva e mentoria remota.
+   - **Público-alvo**: Estudantes e profissionais de qualquer ponto de Moçambique e estrangeiro.
+
+2. **Modalidade Presencial (Nampula)**
+   - **Investimento**: 6.500 MZN (Meticais)
+   - **Formato**: Aulas práticas em laboratório presencial na Cidade de Nampula, Moçambique.
+   - **Benefícios Exclusivos**: Acompanhamento direto lado a lado com instrutor, networking local, resolução de bugs em tempo real e mentoria de carreira.
+
+## Proposta Pedagógica e Competências
+- **Objetivo**: Ensinar o aluno a pensar criticamente como um engenheiro de software profissional utilizando ferramentas de IA como multiplicadores de produtividade.
+- **Ferramentas Práticas**: Cursor IDE, GitHub Copilot, Claude Code, Google Antigravity, LLMs para geração, refatoração e auditoria de código.
+- **Fundamentos de Engenharia**: Arquitetura de software, Clean Code, Clean Architecture, Git e GitHub, controle de versão profissional, segurança ofensiva/defensiva básica e pipelines de deploy.
+- **Diferencial**: O foco não é apenas gerar código, mas validar, auditar arquiteturalmente, depurar e entregar soluções prontas para produção em qualquer linguagem de programação ou framework.
+
+## Requisitos
+- Computador portátil ou de secretária com acesso à internet.
+- Não é necessária experiência prévia em programação (conteúdo desenhado do zero até nível de desenvolvedor júnior autônomo).
+
+## Processo de Inscrição e Pagamento
+1. Aceder a https://inscricao.zedecks.com/
+2. Escolher a modalidade pretendida (Online ou Presencial) e preencher o formulário no modal.
+3. Emitir a Fatura Pró-forma A4 em PDF gerada automaticamente pelo sistema com dados para pagamento (M-Pesa, E-Mola, Conta Bancária).
+4. Submeter o comprovativo de pagamento no portal do aluno ou via WhatsApp oficial para concessão e validação imediata da vaga.

@@ -27,6 +27,6 @@
   "scripts": {
     "dev": "python -m http.server 2025",
     "start": "python -m http.server 2025",
-    "lint": "node -e \"const fs = require('fs'); const html = fs.readFileSync('index.html', 'utf8'); new Function(html.match(/<script\\b[^>]*>([\\s\\S]*?)<\\/script>/i)[1]); console.log('Syntax OK!');\""
+    "lint": "node -e \"const fs = require('fs'); const html = fs.readFileSync('index.html', 'utf8'); const ld = html.match(/<script type=\\\"application\\/ld\\+json\\\">([\\s\\S]*?)<\\/script>/i); if (ld) JSON.parse(ld[1]); const js = html.match(/<script(?![^>]*src)(?![^>]*ld\\+json)[^>]*>([\\s\\S]*?)<\\/script>/i); if (js) new Function(js[1]); console.log('Syntax OK!');\""
   }
 }

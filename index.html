@@ -35,9 +35,132 @@
   <meta name="twitter:description" content="Domina o desenvolvimento de software assistido por Inteligência Artificial do zero ao primeiro emprego júnior.">
   <meta name="twitter:image" content="https://inscricao.zedecks.com/assets/img/hero-programmer.png">
 
+
+  <!-- Dados Estruturados Schema.org / JSON-LD (Google Rich Snippets & AI Search / GEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "EducationalOrganization",
+        "@id": "https://inscricao.zedecks.com/#organization",
+        "name": "Zedecks Training",
+        "url": "https://inscricao.zedecks.com/",
+        "logo": "https://inscricao.zedecks.com/assets/icone.png",
+        "sameAs": [
+          "https://github.com/zedecktraining"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Nampula",
+          "addressCountry": "MZ"
+        },
+        "founder": {
+          "@type": "Person",
+          "name": "Edmilson Adelino Muacigarro (Zedecks)"
+        }
+      },
+      {
+        "@type": "Course",
+        "@id": "https://inscricao.zedecks.com/#course",
+        "name": "Programação Assistida por IA — Do Zero ao Júnior",
+        "description": "Curso Prático de Desenvolvimento de Software Assistido por Inteligência Artificial. Aprenda a raciocinar como um engenheiro de software, gerenciar projetos com clean code e utilizar Cursor, Copilot e Claude para criar sistemas profissionais.",
+        "provider": {
+          "@id": "https://inscricao.zedecks.com/#organization"
+        },
+        "educationalCredentialAwarded": "Certificado de Conclusão Profissional Zedecks Training",
+        "coursePrerequisites": "Computador pessoal e dedicação prática. Sem exigência de formação prévia em computação.",
+        "inLanguage": "pt",
+        "hasCourseInstance": [
+          {
+            "@type": "CourseInstance",
+            "name": "Turma Presencial — Nampula",
+            "courseMode": "onsite",
+            "startDate": "2026-11-10",
+            "endDate": "2026-12-10",
+            "location": {
+              "@type": "Place",
+              "name": "Laboratório Presencial Zedecks Training",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Nampula",
+                "addressCountry": "MZ"
+              }
+            },
+            "offers": {
+              "@type": "Offer",
+              "price": "6500",
+              "priceCurrency": "MZN",
+              "availability": "https://schema.org/LimitedAvailability",
+              "validFrom": "2026-10-26",
+              "validThrough": "2026-11-09",
+              "url": "https://inscricao.zedecks.com/"
+            }
+          },
+          {
+            "@type": "CourseInstance",
+            "name": "Turma Online ao Vivo",
+            "courseMode": "online",
+            "startDate": "2026-11-10",
+            "endDate": "2026-12-10",
+            "offers": {
+              "@type": "Offer",
+              "price": "4500",
+              "priceCurrency": "MZN",
+              "availability": "https://schema.org/LimitedAvailability",
+              "validFrom": "2026-10-26",
+              "validThrough": "2026-11-09",
+              "url": "https://inscricao.zedecks.com/"
+            }
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://inscricao.zedecks.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Preciso ter conhecimento prévio de programação para fazer o curso?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Não. O curso foi desenhado para levar o aluno do absoluto zero até o nível de desenvolvedor júnior autônomo, ensinando fundamentos de engenharia de software e raciocínio lógico assistido por ferramentas de IA."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quando iniciam as aulas e qual o período de inscrições?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "As inscrições estão abertas de 26 de Outubro até 09 de Novembro de 2026. As aulas começam oficialmente no dia 10 de Novembro de 2026."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Como funciona o pagamento e a fatura pró-forma?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ao preencher a inscrição, o sistema gera automaticamente uma Fatura Pró-forma A4 em PDF com os dados de pagamento (M-Pesa, E-Mola ou Conta Bancária). Após o envio do comprovativo de pagamento, a vaga e a conta de aluno são formalmente confirmadas."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quais são os valores das modalidades online e presencial?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A modalidade Online ao Vivo tem o investimento de 4.500 MZN. A modalidade Presencial em Nampula tem o investimento de 6.500 MZN com mentoria física direta e acompanhamento de laboratório."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
   <!-- Ícones da Aplicação -->
   <link rel="icon" type="image/png" href="assets/icone.png">
   <link rel="apple-touch-icon" href="assets/icone.png">
+
 
   <!-- Firebase SDK v10 (Compat - Vanilla JavaScript sem bundler) -->
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
