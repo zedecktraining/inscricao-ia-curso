@@ -89,7 +89,7 @@
             },
             "offers": {
               "@type": "Offer",
-              "price": "6500",
+              "price": "4500",
               "priceCurrency": "MZN",
               "availability": "https://schema.org/LimitedAvailability",
               "validFrom": "2026-10-26",
@@ -105,7 +105,7 @@
             "endDate": "2026-12-10",
             "offers": {
               "@type": "Offer",
-              "price": "4500",
+              "price": "3500",
               "priceCurrency": "MZN",
               "availability": "https://schema.org/LimitedAvailability",
               "validFrom": "2026-10-26",
@@ -140,7 +140,7 @@
             "name": "Como funciona o pagamento e a fatura pró-forma?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Ao preencher a inscrição, o sistema gera automaticamente uma Fatura Pró-forma A4 em PDF com os dados de pagamento (M-Pesa, E-Mola ou Conta Bancária). Após o envio do comprovativo de pagamento, a vaga e a conta de aluno são formalmente confirmadas."
+              "text": "Ao preencher a inscrição, o sistema gera automaticamente uma Fatura Pró-forma A4 em PDF com os dados de pagamento (M-Pesa, E-Mola, Cartão de Crédito/PayPal ou Conta Bancária). Após a confirmação, a vaga é garantida de imediato."
             }
           },
           {
@@ -148,7 +148,7 @@
             "name": "Quais são os valores das modalidades online e presencial?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "A modalidade Online ao Vivo tem o investimento de 4.500 MZN. A modalidade Presencial em Nampula tem o investimento de 6.500 MZN com mentoria física direta e acompanhamento de laboratório."
+              "text": "A modalidade Online ao Vivo tem o investimento de 3.500 MZN. A modalidade Presencial em Nampula tem o investimento de 4.500 MZN com mentoria física direta e acompanhamento de laboratório."
             }
           }
         ]
@@ -2629,6 +2629,30 @@
       max-width: 880px;
       box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
     }
+
+    .landing-cta-btn-group {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
+    }
+
+    .landing-cta-btn-group .btn-select {
+      width: auto !important;
+      min-width: 250px;
+      max-width: 320px;
+      flex: 0 1 auto;
+      margin: 0;
+    }
+
+    @media (max-width: 600px) {
+      .landing-cta-btn-group .btn-select {
+        width: 100% !important;
+        max-width: 100%;
+      }
+    }
   </style>
 </head>
 
@@ -2720,7 +2744,7 @@
                 <h3>Curso Online</h3>
                 <div class="desc">Ideal para quem quer aprender à distância com flexibilidade total.</div>
               </div>
-              <div class="price-val">4.000 <span>MT</span></div>
+              <div class="price-val">3.500 <span>MT</span></div>
               <ul class="feature-list">
                 <li>Aulas práticas interactivas e gravadas</li>
                 <li>Acesso total à comunidade de alunos</li>
@@ -2740,7 +2764,7 @@
                 <h3>Curso Presencial</h3>
                 <div class="desc">Imersão completa com mentoria lado a lado em sala de aula.</div>
               </div>
-              <div class="price-val gold">5.000 <span>MT</span></div>
+              <div class="price-val gold">4.500 <span>MT</span></div>
               <ul class="feature-list">
                 <li>Tudo do curso Online incluído</li>
                 <li>Aulas presenciais com mentoria directa</li>
@@ -2826,12 +2850,12 @@
         <p class="muted" style="max-width:620px; margin:10px auto 26px;">
           Escolhe a tua modalidade favorita para abrir o formulário de inscrição, emitir a tua Factura Pró-forma A4 oficial e garantir a tua vaga na turma.
         </p>
-        <div style="display:flex; justify-content:center; gap:16px; flex-wrap:wrap; margin-bottom:22px;">
-          <button class="btn-select" type="button" data-mode="online" style="min-width:240px; font-weight:700;">
-            SELECCIONAR ONLINE (4.000 MT) →
+        <div class="landing-cta-btn-group">
+          <button class="btn-select" type="button" data-mode="online" style="font-weight:700;">
+            SELECCIONAR ONLINE
           </button>
-          <button class="btn-select featured" type="button" data-mode="presencial" style="min-width:240px; font-weight:700; background:var(--gold); color:#05121e; border-color:var(--gold);">
-            SELECCIONAR PRESENCIAL (5.000 MT) →
+          <button class="btn-select featured" type="button" data-mode="presencial" style="font-weight:700; background:var(--gold); color:#05121e; border-color:var(--gold);">
+            SELECCIONAR PRESENCIAL
           </button>
         </div>
         <div>
@@ -3182,6 +3206,20 @@
               <button class="copy-chip" type="button" data-copy="000100000038539739457">
                 <svg class="svg-icon" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar NIB
               </button>
+            </div>
+
+            <!-- Cartão de Crédito / Débito & PayPal (Internacional) -->
+            <div class="pay-card" id="paypalPayCard" style="border-color: rgba(0, 183, 255, 0.4); background: linear-gradient(135deg, rgba(12, 27, 45, 0.95), rgba(7, 34, 60, 0.95));">
+              <div class="pay-header">
+                <span class="pay-title">
+                  <svg class="svg-icon" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg> 
+                  Cartão / PayPal
+                </span>
+                <span class="pay-tag" style="background:rgba(0,183,255,0.15); color:#00b7ff; border:1px solid rgba(0,183,255,0.3);">PayPal</span>
+              </div>
+              <div class="pay-number" id="paypalConvertedAmount" style="font-size:1.05rem; color:#00b7ff; margin:6px 0;">A calcular...</div>
+              <div class="pay-holder" style="font-size:0.82rem; margin-bottom:10px;">Confirmação imediata sem anexo de comprovativo</div>
+              <div id="paypalButtonContainer" style="width:100%; margin-top:6px;"></div>
             </div>
           </div>
 
@@ -3581,12 +3619,12 @@
             <span class="inv-mode-pill" id="invTableMode">Online</span>
           </td>
           <td style="text-align:right; vertical-align:middle; font-weight:bold;" id="invTableSubtotal">
-            4.000 MT
+            3.500 MT
           </td>
         </tr>
         <tr class="inv-total-row">
           <td colspan="2" style="text-align:right;">VALOR TOTAL A PAGAR:</td>
-          <td style="text-align:right;" id="invTableTotal">4.000 MT</td>
+          <td style="text-align:right;" id="invTableTotal">3.500 MT</td>
         </tr>
       </tbody>
     </table>
@@ -3753,8 +3791,8 @@
       };
 
       const COURSE_PRICES = {
-        online: 4000,
-        presencial: 5000
+        online: 3500,
+        presencial: 4500
       };
 
       const COURSE_LEVEL_LABELS = {
@@ -4724,6 +4762,140 @@
         }
       };
 
+      // 4.6.1 CONTROLADOR DO GATEWAY DE PAGAMENTO PAYPAL & CARTÕES INTERNACIONAIS
+      const PayPalController = {
+        // Client ID Oficial de Produção do PayPal
+        clientId: 'BAAM1m2yHDugh9mEaA55NZaUBfgEY2hq_x53bvRU4EcCkDP4NClkaGuifYQS0qkCxhMuFTuTVy1YbwMY8M',
+        currency: 'USD',
+        // Taxa comercial de conversão: 1 USD = 64.00 MZN
+        // 3.500 MZN (Online) ≈ $54.69 USD | 4.500 MZN (Presencial) ≈ $70.31 USD
+        mznToUsdRate: 64.0,
+
+        getUsdAmount(mznAmount) {
+          const mzn = Number(mznAmount) || 3500;
+          return (mzn / this.mznToUsdRate).toFixed(2);
+        },
+
+        init(student) {
+          const container = getElement('paypalButtonContainer');
+          const labelEl = getElement('paypalConvertedAmount');
+          if (!container || !student) return;
+
+          const usdVal = this.getUsdAmount(student.amount);
+          if (labelEl) {
+            labelEl.textContent = `${formatCurrency(student.amount)} = $${usdVal} USD`;
+          }
+
+          // Se a inscrição já estiver confirmada, exibe recibo de quitação e omite botões
+          if (student.status === 'Inscrição confirmada') {
+            container.innerHTML = `
+              <div style="padding:14px; background:rgba(40,214,154,0.12); border:1px solid rgba(40,214,154,0.35); border-radius:var(--radius-md); font-size:0.9rem; color:#28d69a; display:flex; align-items:center; gap:10px;">
+                <svg class="svg-icon" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span><strong>Pagamento Liquidado:</strong> A tua inscrição está 100% quitada e garantida. Podes descarregar o recibo oficial acima.</span>
+              </div>
+            `;
+            return;
+          }
+
+          // Verificação se o Client ID de produção foi configurado
+          if (!this.clientId || this.clientId === 'SEU_PAYPAL_CLIENT_ID') {
+            container.innerHTML = `
+              <div style="padding:12px; background:rgba(0,183,255,0.08); border:1px dashed rgba(0,183,255,0.35); border-radius:var(--radius-sm); font-size:0.86rem; color:#cfe2f3;">
+                <strong style="color:#00b7ff;">Gateway PayPal em Ativação:</strong>
+                Para pagar por Cartão de Crédito/Débito em Dólares ($${usdVal} USD), contacte o suporte ou utilize M-Pesa / E-Mola / BIM ao lado.
+              </div>
+            `;
+            return;
+          }
+
+          // Carregamento dinâmico e seguro do SDK do PayPal
+          if (!window.paypal) {
+            container.innerHTML = `<div class="muted" style="font-size:0.85rem; padding:8px 0;">A carregar botões de pagamento seguro...</div>`;
+            const existingScript = document.getElementById('paypalSdkScript');
+            if (!existingScript) {
+              const script = document.createElement('script');
+              script.id = 'paypalSdkScript';
+              script.src = `https://www.paypal.com/sdk/js?client-id=${encodeURIComponent(this.clientId)}&currency=${this.currency}&components=buttons`;
+              script.onload = () => {
+                this.renderButtons(student);
+              };
+              script.onerror = () => {
+                container.innerHTML = `
+                  <div style="color:#ff6b6b; font-size:0.8rem; line-height:1.4; padding:8px; background:rgba(255,107,107,0.08); border:1px solid rgba(255,107,107,0.25); border-radius:6px; margin-top:4px;">
+                    Não foi possível carregar os botões do PayPal (desative eventuais bloqueadores de anúncios no navegador ou utilize M-Pesa / E-Mola / BIM ao lado).
+                  </div>
+                `;
+              };
+              document.head.appendChild(script);
+            }
+          } else {
+            this.renderButtons(student);
+          }
+        },
+
+        renderButtons(student) {
+          const container = getElement('paypalButtonContainer');
+          if (!container || !window.paypal) return;
+          container.innerHTML = '';
+
+          const usdAmount = this.getUsdAmount(student.amount);
+
+          try {
+            window.paypal.Buttons({
+              style: {
+                layout: 'vertical',
+                color: 'gold',
+                shape: 'rect',
+                label: 'pay'
+              },
+              createOrder: (data, actions) => {
+                return actions.order.create({
+                  purchase_units: [{
+                    description: `Zedecks Training — Curso IA (${student.mode === 'online' ? 'Online' : 'Presencial'}) | Aluno: ${student.name} [ID: ${student.code}]`,
+                    custom_id: student.code,
+                    amount: {
+                      currency_code: this.currency,
+                      value: usdAmount
+                    }
+                  }]
+                });
+              },
+              onApprove: (data, actions) => {
+                return actions.order.capture().then((details) => {
+                  const captureId = details.id || (details.purchase_units && details.purchase_units[0]?.payments?.captures[0]?.id) || data.orderID;
+                  
+                  // Atualiza o estudante no repositório de dados com status confirmado e dados do PayPal
+                  const updated = StorageRepository.updateStudentProof(
+                    student.code,
+                    `Comprovativo PayPal (ID: ${captureId})`,
+                    'PAYPAL_DIRECT_PAYMENT'
+                  );
+
+                  if (updated) {
+                    updated.status = 'Inscrição confirmada';
+                    updated.paypalOrderId = data.orderID;
+                    updated.paypalCaptureId = captureId;
+                    updated.paypalPayer = details.payer ? `${details.payer.name?.given_name || ''} ${details.payer.name?.surname || ''}`.trim() : '';
+                    StorageRepository.saveStudents(StorageRepository.getStudents().map(s => s.code === updated.code ? updated : s));
+                    StorageRepository.setActiveSession(updated);
+                  }
+
+                  // Redireciona e atualiza a interface do portal do estudante
+                  AppRouter.navigateToPortal();
+                  Toast.show(`Pagamento de $${usdAmount} USD (${formatCurrency(student.amount)}) confirmado com sucesso! A tua vaga foi garantida de imediato!`, 'success');
+                });
+              },
+              onError: (err) => {
+                console.error('Erro no PayPal Checkout:', err);
+                Toast.show('Ocorreu um erro no processamento do cartão. Por favor verifica os teus dados ou tenta outro método.', 'error');
+              }
+            }).render('#paypalButtonContainer');
+          } catch (e) {
+            console.error('Erro ao renderizar botões PayPal:', e);
+          }
+        }
+      };
+
       // 4.7 ROTEADOR DE PÁGINAS INDEPENDENTES (HASH ROUTER: #site, #portal, #admin)
       const AppRouter = {
         isPortalRoute() {
@@ -5500,6 +5672,11 @@
           if (proofWaBtn) {
             const waMsg = `Olá Zedecks Training! Sou o estudante ${student.name} (ID: ${student.code}). Segue o meu comprovativo de pagamento da inscrição no Curso de Programação Assistida por IA.`;
             proofWaBtn.href = `https://wa.me/message/B6KUROA4OG4PG1?text=${encodeURIComponent(waMsg)}`;
+          }
+
+          // Inicializa o Gateway PayPal / Cartões Internacionais
+          if (typeof PayPalController !== 'undefined') {
+            PayPalController.init(student);
           }
         },
 
