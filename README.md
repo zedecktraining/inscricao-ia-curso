@@ -47,7 +47,7 @@ flowchart TB
     subgraph S3["[Seção 3] Estrutura Semântica (HTML)"]
         Header["Header & Logo (assets/img/ztrining-logo.png)"]
         HeroHTML["Hero (Apresentação & assets/img/hero-programmer.png)"]
-        PricingHTML["Modalidades: Online (4.000 MT) & Presencial (5.000 MT)"]
+        PricingHTML["Modalidades: Online (3 500 MT) & Presencial (4 500 MT)"]
         StoryHTML["Metodologia & Público-Alvo"]
         ViewsHTML["Vistas SPA: Landing (#landingView), Aluno (#portalView) & Admin (#adminView)"]
         FormsHTML["Formulários (Inscrição, Login, Comprovativo)"]
